@@ -1,13 +1,24 @@
 'use strict';
 
+
+//hours open are 6am to 8pm
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 function random(min, max){
   var randNum = Math.random() * (+max - +min) +  +min;
   return Math.floor(randNum);
 }
 
-//hours open are 6am to 8pm
-//for each hour open, store amount of cookies purchased
-var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+function populateSalesEachHour(minCustomer, maxCustomer, avgCookies){
+  var cookiesPerHour= [];
+  for(var i = 0; i < hoursOpen.length; i++){
+    //get random number for customers in each hour
+    var customersPerHour = random(minCustomer, maxCustomer);
+    //calculate cookies per hour and append to array
+    cookiesPerHour[i] = Math.floor(customersPerHour * avgCookies);
+  }
+  return cookiesPerHour;
+}
 
 //create object literals for each shop location
 var firstAndPike = {
@@ -15,16 +26,20 @@ var firstAndPike = {
   minCustomerPerDay: 23,
   maxCustomerPerDay: 65,
   avgCookiesPerSale: 6.3,
-  customersPerHour: function(){
-    return random(this.minCustomerPerDay, this.maxCustomerPerDay);
-  },
-  cookiesPerHour: function(){
-    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
-  },
+  // customersPerHour: function(){
+  //   return random(this.minCustomerPerDay, this.maxCustomerPerDay);
+  // },
+  // cookiesPerHour: function(){
+  //   return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
+  // },
   salesEachHour: function(){
-
+    var sales = populateSalesEachHour(this.minCustomerPerDay, this.maxCustomerPerDay, this.avgCookiesPerSale);
+    console.log(`Sales Each hour for firstandPike is ${sales}`);
+    return sales;
   }
 };
+
+console.log(`Third times Sales Each hour for firstandPike is ${firstAndPike.salesEachHour()}`);
 
 var seaTac = {
   name: 'SeaTac Airport',
@@ -79,9 +94,9 @@ var alki = {
 };
 
 //testing
-var shops = [firstAndPike, seaTac, seattleCenter, capitolHill, alki];
+// var shops = [firstAndPike, seaTac, seattleCenter, capitolHill, alki];
 
-for(var i = 0; i < shops.length; i++){
-  console.log(`Customers per hour is ${shops[i].customersPerHour()}`);
-  console.log(`Cookies per hour is ${shops[i].cookiesPerHour()}.`);
-}
+// for(var i = 0; i < shops.length; i++){
+//   console.log(`Customers per hour is ${shops[i].customersPerHour()}`);
+//   console.log(`Cookies per hour is ${shops[i].cookiesPerHour()}.`);
+// }
