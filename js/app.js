@@ -6,6 +6,8 @@ function random(min, max){
 }
 
 //hours open are 6am to 8pm
+//for each hour open, store amount of cookies purchased
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 //create object literals for each shop location
 var firstAndPike = {
@@ -17,7 +19,10 @@ var firstAndPike = {
     return random(this.minCustomerPerDay, this.maxCustomerPerDay);
   },
   cookiesPerHour: function(){
-    return this.customersPerHour() * this.avgCookiesPerSale;
+    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
+  },
+  salesEachHour: function(){
+
   }
 };
 
@@ -30,7 +35,7 @@ var seaTac = {
     return random(this.minCustomerPerDay, this.maxCustomerPerDay);
   },
   cookiesPerHour: function(){
-    return this.customersPerHour() * this.avgCookiesPerSale;
+    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
   }
 };
 
@@ -43,7 +48,7 @@ var seattleCenter  = {
     return random(this.minCustomerPerDay, this.maxCustomerPerDay);
   },
   cookiesPerHour: function(){
-    return this.customersPerHour() * this.avgCookiesPerSale;
+    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
   }
 };
 
@@ -56,7 +61,7 @@ var capitolHill = {
     return random(this.minCustomerPerDay, this.maxCustomerPerDay);
   },
   cookiesPerHour: function(){
-    return this.customersPerHour() * this.avgCookiesPerSale;
+    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
   }
 };
 
@@ -69,10 +74,11 @@ var alki = {
     return random(this.minCustomerPerDay, this.maxCustomerPerDay);
   },
   cookiesPerHour: function(){
-    return this.customersPerHour() * this.avgCookiesPerSale;
+    return Math.floor(this.customersPerHour() * this.avgCookiesPerSale);
   }
 };
 
+//testing
 var shops = [firstAndPike, seaTac, seattleCenter, capitolHill, alki];
 
 for(var i = 0; i < shops.length; i++){
