@@ -15,8 +15,6 @@ var firstAndPike = {
   }
 };
 
-console.log(`Third times Sales Each hour for firstandPike is ${firstAndPike.salesEachHour()}`);
-
 var seaTac = {
   name: 'SeaTac Airport',
   minCustomerPerDay: 3,
@@ -61,7 +59,6 @@ var alki = {
   }
 };
 
-var shops = [firstAndPike, seaTac, seattleCenter, capitolHill, alki];
 
 //invoked by the salesEachHour method of the store object
 function populateSalesEachHour(minCustomer, maxCustomer, avgCookies){
@@ -74,19 +71,58 @@ function populateSalesEachHour(minCustomer, maxCustomer, avgCookies){
   }
   return cookiesPerHour;
 }
+var shops = [firstAndPike, seaTac, seattleCenter, capitolHill, alki];
 
 //invoked by the populateSalesEachHour function
 function random(min, max){
-  var randNum = Math.random() * (+max - +min) +  +min;
+  var randNum = Math.random() * (+max - +min) + +min;
   return Math.floor(randNum);
 }
 
-//for each shop in the shops array
-for(var i = 0; i < shops.length; i++){
-  console.log(`Length of shops array is ${shops.length}.`);
-  console.log(`Shop: ${shops[i].name}`);
-  //print to the page the cookie sales for each hour open
-  for(var h = 0; h < hoursOpen.length; h++){
-    console.log(`${hoursOpen[h]}: ${shops[i].salesEachHour()[h]}`);
+function renderSales(){
+  for(var i = 0; i < shops.length; i++){
+    var dayTotal = 0;
+    //for each shop in shops array, create a new ul
+    var ul = document.createElement('ul');
+    ul.innerHTML = `<p class="shop">Shop: ${shops[i].name}`;
+    // ul.textContent = `Shop: ${shops[i].name}`;
+    document.body.appendChild(ul);
+
+    //for each hour open, create a new li element
+    for(var h = 0; h < hoursOpen.length; h++){
+      var liEl = document.createElement('li');
+      var hourTotal = shops[i].salesEachHour()[h];
+      //populate the li with that hour and the cookies sold that hour
+      liEl.textContent = `${hoursOpen[h]}: ${hourTotal} cookies`;
+      ul.appendChild(liEl);
+
+      dayTotal = dayTotal + hourTotal;
+    }
+
+    var totalLiEl = document.createElement('li');
+    totalLiEl.textContent = `Total: ${dayTotal} cookies`;
+    ul.appendChild(totalLiEl);
   }
 }
+
+// // select the section element with ID of sales-list
+// var sectionEl = document.getElementById('sales-list');
+
+// function renderSales(){
+//   //for each shop in the shops array
+//   for(var i = 0; i < shops.length; i++){
+//     //write name of shop
+//     sectionEl.textContent = `Shop: ${shops[i].name}`;
+//     //create ul element
+//     var ul = document.createElement('ul');
+//     sectionEl.appendChild(ul);
+//     //for each hour open, create a new li element
+//     for(var j = 0; j < hoursOpen.length; j++){
+//       var liEl = document.createElement('li');
+//       //populate the li with that hour and the cookies sold that hour
+//       liEl.textContent = `${hoursOpen[j]}: ${shops[i].salesEachHour()[j]} cookies`;
+//       ul.appendChild(liEl);
+//     }
+//   }
+
+renderSales();
