@@ -107,7 +107,8 @@ function renderFooter() {
   tdEl.textContent = 'Totals';
   trEl.appendChild(tdEl);
 
-  //for each hour open, 
+  var grandTotal = 0;
+  //for each hour open
   for(var i = 0; i < hoursOpen.length; i++) {
     //variable to hold running total for the current hour
     var hourTotal = 0;
@@ -118,14 +119,16 @@ function renderFooter() {
     tdEl = document.createElement('td');
     tdEl.textContent = hourTotal;
     trEl.appendChild(tdEl);
+    grandTotal += hourTotal;
   }
+  //create td for grand total
+  tdEl = document.createElement('td');
+  tdEl.textContent = grandTotal;
+  trEl.appendChild(tdEl);
 }
-
 
 renderHeader();
 renderFooter();
-//render shops rows
-//render totals footer row
-////////////////////////////////////////////////////////////////////////////
+
 
 
