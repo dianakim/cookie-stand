@@ -21,7 +21,6 @@ Shop.prototype.calcCookiesSoldEachHour = function(minCustomer, maxCustomer, avgC
     var customersEachHour = Math.random() * (maxCustomer - minCustomer) + minCustomer;
     //calculate cookies each hour and append to array
     var cookiesEachHour = Math.floor(customersEachHour * avgCookies);
-    console.log('shop name is ' + this.name);
     this.cookiesEachHourArr.push(cookiesEachHour);
   }
 };
@@ -57,8 +56,6 @@ function renderTable() {
 
   //for each shop in the allShops array,
   for(var s =  0; s < allShops.length; s++) {
-    console.log(allShops[s].name);
-
     //calcCookiesSoldEachHour to fill cookiesEachHourArr
     allShops[s].calcCookiesSoldEachHour(allShops[s].minCustomer, allShops[s].maxCustomer, allShops[s].avgCookiesPerSale);
 
@@ -69,6 +66,8 @@ function renderTable() {
     //create and fill first td with shop name
     tdEl = document.createElement('td');
     tdEl.textContent = allShops[s].name;
+    trEl.appendChild(tdEl);
+    console.log('first column shop name ' + allShops[s].name);
 
     //for each item in the shop's cookiesEachHourArr
     for(var h = 0; h < allShops[s].cookiesEachHourArr.length; h++) {
