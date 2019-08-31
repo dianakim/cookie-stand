@@ -1,6 +1,7 @@
 'use strict';
 
 var tableEl = document.getElementById('sales-table');
+var tbodyEl = document.createElement('tbody');
 
 var allShops = [];
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
@@ -22,6 +23,30 @@ Shop.prototype.calcCookiesSoldEachHour = function(minCustomer, maxCustomer, avgC
     //calculate cookies each hour and append to array
     var cookiesEachHour = Math.floor(customersEachHour * avgCookies);
     this.cookiesEachHourArr.push(cookiesEachHour);
+  }
+};
+
+Shop.prototype.render = function() {
+  this.calcCookiesSoldEachHour(this.minCustomer, this.maxCustomer, this.avgCookiesPerSale);
+
+  //create a row and append to tbody
+  var trEl = document.createElement('tr');
+  tbodyEl.appendChild(trEl);
+
+  //create and fill first td with shop name
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.name;
+  trEl.appendChild(tdEl);
+  console.log('first column shop name ' + this.name);
+
+  //for each item in the shop's cookiesEachHourArr
+  for(var h = 0; h < this.cookiesEachHourArr.length; h++) {
+
+    //create and fill td
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesEachHourArr[h];
+    //append to row
+    trEl.appendChild(tdEl);
   }
 };
 
@@ -51,33 +76,11 @@ function renderTable() {
     trEl.appendChild(tdEl);
   }
   //create the table body section
-  var tbodyEl = document.createElement('tbody');
   tableEl.appendChild(tbodyEl);
 
-  //for each shop in the allShops array,
+  //for each shop in the allShops array, call the shop's render method
   for(var s =  0; s < allShops.length; s++) {
-    //calcCookiesSoldEachHour to fill cookiesEachHourArr
-    allShops[s].calcCookiesSoldEachHour(allShops[s].minCustomer, allShops[s].maxCustomer, allShops[s].avgCookiesPerSale);
-
-    //create a row and append to tbody
-    trEl = document.createElement('tr');
-    tbodyEl.appendChild(trEl);
-
-    //create and fill first td with shop name
-    tdEl = document.createElement('td');
-    tdEl.textContent = allShops[s].name;
-    trEl.appendChild(tdEl);
-    console.log('first column shop name ' + allShops[s].name);
-
-    //for each item in the shop's cookiesEachHourArr
-    for(var h = 0; h < allShops[s].cookiesEachHourArr.length; h++) {
-
-      //create and fill td
-      tdEl = document.createElement('td');
-      tdEl.textContent = allShops[s].cookiesEachHourArr[h];
-      //append to row
-      trEl.appendChild(tdEl);
-    }
+    allShops[s].render();
   }
 
 }
