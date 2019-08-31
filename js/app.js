@@ -61,8 +61,6 @@ new Shop('Seattle Center', 11, 38, 3.7);
 new Shop('Capitol Hill', 20, 38, 2.3);
 new Shop('Alki', 2, 16,4.6);
 
-console.log(allShops);
-
 //render header
 function renderHeader() {
   //create header section
@@ -129,6 +127,3 @@ function renderFooter() {
 
 renderHeader();
 renderFooter();
-
-
-
