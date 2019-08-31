@@ -39,15 +39,20 @@ Shop.prototype.render = function() {
   trEl.appendChild(tdEl);
   console.log('first column shop name ' + this.name);
 
+  var cookiesTotal = 0;
   //for each item in the shop's cookiesEachHourArr
   for(var h = 0; h < this.cookiesEachHourArr.length; h++) {
-
+    cookiesTotal += this.cookiesEachHourArr[h];
     //create and fill td
     tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesEachHourArr[h];
     //append to row
     trEl.appendChild(tdEl);
   }
+
+  tdEl = document.createElement('td');
+  tdEl.textContent = cookiesTotal;
+  trEl.appendChild(tdEl);
 };
 
 new Shop('1st and Pike', 23, 65, 6.3);
@@ -75,6 +80,11 @@ function renderHeader() {
     tdEl.textContent = hoursOpen[i];
     trEl.appendChild(tdEl);
   }
+  //create Daily Location Total
+  tdEl = document.createElement('td');
+  tdEl.textContent = 'Daily Location Total';
+  trEl.appendChild(tdEl);
+
   //create the table body section
   tableEl.appendChild(tbodyEl);
 
