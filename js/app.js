@@ -16,14 +16,12 @@ function Shop(name, minCustomer, maxCustomer, avgCookiesPerSale) {
   allShops.push(this);
 }
 
-console.log(this);
-
-Shop.prototype.calcCookiesSoldEachHour = function(minCustomer, maxCustomer, avgCookies){
+Shop.prototype.calcCookiesSoldEachHour = function(){
   for(var i = 0; i < hoursOpen.length; i++){
     //for each hour open, get random number of customers
-    var customersEachHour = Math.random() * (maxCustomer - minCustomer) + minCustomer;
+    var customersEachHour = Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer;
     //calculate cookies each hour and append to array
-    var cookiesEachHour = Math.floor(customersEachHour * avgCookies);
+    var cookiesEachHour = Math.floor(customersEachHour * this.avgCookiesPerSale);
     this.cookiesEachHourArr.push(cookiesEachHour);
   }
 };
