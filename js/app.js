@@ -16,6 +16,8 @@ function Shop(name, minCustomer, maxCustomer, avgCookiesPerSale) {
   allShops.push(this);
 }
 
+console.log(this);
+
 Shop.prototype.calcCookiesSoldEachHour = function(minCustomer, maxCustomer, avgCookies){
   for(var i = 0; i < hoursOpen.length; i++){
     //for each hour open, get random number of customers
