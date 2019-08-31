@@ -59,7 +59,7 @@ new Shop('Alki', 2, 16,4.6);
 console.log(allShops);
 
 //render header
-function renderTable() {
+function renderHeader() {
   //create header section
   var theadEl = document.createElement('thead');
   tableEl.appendChild(theadEl);
@@ -82,11 +82,38 @@ function renderTable() {
   for(var s =  0; s < allShops.length; s++) {
     allShops[s].render();
   }
+}
 
+//render footer
+function renderFooter() {
+  //create footer section
+  var tfootEl = document.createElement('tfoot');
+  tableEl.appendChild(tfootEl);
+  //create footer row
+  var trEl = document.createElement('tr');
+  tfootEl.appendChild(trEl);
+  //create Totals td
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+
+  //for each hour open, 
+  for(var i = 0; i < hoursOpen.length; i++) {
+    //variable to hold running total for the current hour
+    var hourTotal = 0;
+    //loop through each property's cookiesEachHourArr and sum up the column of data
+    for(var t =  0; t < allShops.length; t++) {
+      hourTotal += allShops[t].cookiesEachHourArr[i];
+    }
+    tdEl = document.createElement('td');
+    tdEl.textContent = hourTotal;
+    trEl.appendChild(tdEl);
+  }
 }
 
 
-renderTable();
+renderHeader();
+renderFooter();
 //render shops rows
 //render totals footer row
 ////////////////////////////////////////////////////////////////////////////
