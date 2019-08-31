@@ -63,6 +63,25 @@ Shop.prototype.calcCookiesSoldEachHour = function(minCustomer, maxCustomer, avgC
 };
 
 //render header
+function renderHeader(){
+  //create header section
+  var theadEl = document.createElement('thead');
+  tableEl.appendChild(theadEl);
+  //create row
+  var trEl = document.createElement('tr');
+  theadEl.appendChild(trEl);
+  //create blank td
+  var tdEl = document.createElement('td');
+  trEl.appendChild(tdEl);
+  //for each hour open, create td
+  for(var i = 0; i < hoursOpen.length; i++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = hoursOpen[i];
+    trEl.appendChild(tdEl);
+  }
+}
+
+renderHeader();
 //render shops rows
 //render totals footer row
 ////////////////////////////////////////////////////////////////////////////
