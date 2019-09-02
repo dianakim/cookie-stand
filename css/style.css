@@ -26,8 +26,12 @@ h1 {
   width: 50%  
 }
 
+#table-section {
+  overflow-x: auto;
+}
+
 table {
-  width: 90%;
+  width: 100%;
 }
 tr:nth-child(even) {
   background-color: #B2C7A3;
