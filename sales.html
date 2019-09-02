@@ -19,7 +19,21 @@
       <table id="sales-table">
       </table>
     </section>
-</main>
+  </main>
+  <form id="form">
+    <fieldset>
+      <legend>New Shop Information Entry</legend>
+      <label>Enter shop name:</label>
+      <input type="text" name="shopname" required="required" /><br />
+      <label>Enter minimum customers per day:</label>
+      <input type="text" name="mincustomer" required="required" /><br />
+      <label>Enter maximum customers per day:</label>
+      <input type="text" name="maxcustomer" required="required" /><br />
+      <label>Enter shop's average cookies sold per sale:</label>
+      <input type="text" name="avgcookiespersale" required="required" /><br />
+      <button type="submit" name="submit-button">Submit</button>
+      </fieldset>
+  </form>
   <script src="js/app.js" ></script>
 </body>
 </html>

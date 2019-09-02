@@ -2,6 +2,7 @@
 
 var tableEl = document.getElementById('sales-table');
 var tbodyEl = document.createElement('tbody');
+var tfootEl = document.createElement('tfoot');
 
 var allShops = [];
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
@@ -37,7 +38,6 @@ Shop.prototype.render = function() {
   var tdEl = document.createElement('td');
   tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
-  console.log('first column shop name ' + this.name);
 
   var cookiesTotal = 0;
   //for each item in the shop's cookiesEachHourArr
@@ -83,7 +83,10 @@ function renderHeader() {
   tdEl.textContent = 'Daily Location Total';
   trEl.appendChild(tdEl);
 
-  //create the table body section
+}
+
+//create the table body section
+function renderTableBody() {
   tableEl.appendChild(tbodyEl);
 
   //for each shop in the allShops array, call the shop's render method
@@ -94,8 +97,7 @@ function renderHeader() {
 
 //render footer
 function renderFooter() {
-  //create footer section
-  var tfootEl = document.createElement('tfoot');
+
   tableEl.appendChild(tfootEl);
   //create footer row
   var trEl = document.createElement('tr');
@@ -126,4 +128,30 @@ function renderFooter() {
 }
 
 renderHeader();
+renderTableBody();
 renderFooter();
+
+var shopFormEl = document.getElementById('form');
+shopFormEl.addEventListener('submit', handleFormSubmit);
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  var name = event.target.shopname.value;
+  var minCustomer = event.target.mincustomer.value;
+  var maxCustomer = event.target.maxcustomer.value;
+  var avgCookiesPerSale = event.target.avgcookiespersale.value;
+
+  new Shop(name, minCustomer, maxCustomer, avgCookiesPerSale);
+
+  while(tbodyEl.firstChild) {
+    tbodyEl.removeChild(tbodyEl.firstChild);
+  }
+
+  tfootEl.firstChild.remove();
+
+  renderTableBody();
+  renderFooter();
+
+  console.log(allShops);
+}
