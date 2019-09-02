@@ -144,13 +144,16 @@ function handleFormSubmit(event) {
 
   new Shop(name, minCustomer, maxCustomer, avgCookiesPerSale);
 
-  while(tbodyEl.firstChild) {
-    tbodyEl.removeChild(tbodyEl.firstChild);
-  }
-
+  //Remove totals row
   tfootEl.firstChild.remove();
 
-  renderTableBody();
+  //get length of allShops array to determine index of newly added shop
+  var l = allShops.length;
+
+  //Add new shop row
+  allShops[l - 1].render();
+
+  //Add recalculated totals row
   renderFooter();
 
   console.log(allShops);
