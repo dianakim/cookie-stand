@@ -101,7 +101,7 @@ function renderFooter() {
   for(var i = 0; i < hoursOpen.length; i++) {
     //variable to hold running total for the current hour
     var hourTotal = 0;
-    //loop through each property's cookiesEachHourArr and 
+    //loop through each property's cookiesEachHourArr and
     //sum up the column of data
     for(var t =  0; t < allShops.length; t++) {
       hourTotal += allShops[t].cookiesEachHourArr[i];
