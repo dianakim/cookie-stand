@@ -14,29 +14,40 @@ body {
   background-attachment: fixed;
 }
 
-.topnav {
-  /* float: left; */
-  /* text-align: center; */
-  padding: 30px;
-  background-color: white;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+nav div {
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-main h1 {
-  margin-top: 40px;
+.topnav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px;
+}
+
+main {
+  display: block;
+}
+
+main p {
+  font-family: Marcellus, serif;
+  font-size: 20px;
+  color: white;
+  margin: 100px;
 }
 
 .topnav a {
-  font-family: 'Philosopher', sans-serif;
-  text-decoration: none;
+  float: right;
+  font-family: Philosopher, sans-serif;
   font-size: 20px;
-  margin-right: 20px;
-  color: black;
-  transition: color 500ms, font-size 300ms;
-  transition-delay: 400ms;
+  margin-right: 40px;
+  color: white;
+  text-decoration: none;
+  transition: color 500ms ease 400ms, font-size 300ms ease;
 }
 
 .topnav a:hover {
@@ -48,16 +59,10 @@ header h1:hover {
   color: white;
 }
 
-nav h1 {
-  /* text-align: center; */
-  margin-top: 20px;
-  font-family: 'Cookie', cursive;
+div h1 {
+  font-family: Cookie, cursive;
   font-size: 5em;
-  /* z-index: 99; */
   color: #96513D;
-  width: 40%;
-  overflow: hidden;
-  transition: width
 }
 
 .shop {
@@ -66,12 +71,14 @@ nav h1 {
 }
 
 #logo {
-  /* margin-left: auto;
+  width: 800px;
+  margin-left: auto;
   margin-right: auto;
-  display: block; */
-  float: right;
-  width: 50%;
-  /* margin-top: 10px; */
+}
+
+#logo img {
+  width: 100%;
+  margin-top: 100px;
 }
 
 #table-section {
