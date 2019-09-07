@@ -14,10 +14,14 @@ body {
   background-attachment: fixed;
 }
 
-nav div {
+.topnav div {
   width: 400px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.salesnav div {
+  width: 500px;
 }
 
 .topnav {
@@ -61,7 +65,7 @@ header h1:hover {
 
 div h1 {
   font-family: Cookie, cursive;
-  font-size: 5em;
+  font-size: 4em;
   color: #96513D;
 }
 
