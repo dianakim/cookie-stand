@@ -1,29 +1,79 @@
 body {
+  background-image: url("../images/water.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 20px;
 }
-.topnav {
-  /* float: left; */
-  /* text-align: center; */
-  text-decoration: none;
-  font-size: 20px;
-  padding: 30px;
+
+#sales-page {
+  /* padding: 20px; */
+  background-image: url("../images/wood.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-h1 {
-  text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.topnav {
+  padding: 30px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+nav div {
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.topnav a {
+  float: right;
+  font-family: 'Philosopher', sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 40px;
+  color: white;
+  transition: color 500ms, font-size 300ms;
+  transition-delay: 400ms;
+}
+
+.topnav a:hover {
+  color: green;
+  font-size: 30px;
+}
+
+div h1 {
+  font-family: 'Cookie', cursive;
+  font-size: 5em;
+  color: #96513D;
+  /* display: inline-block; */
+}
+
+#logo {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#logo img {
+  width: 100%;
+  margin-top: 100px;
+}
+
+main p {
+  font-family: 'Marcellus', serif;
+  font-size: 20px;
+  margin: 100px;
+  color: white;
+  /* line-height: 30px; */
 }
 
 .shop {
   font-size: 1.5em;
   padding: 5px 0 5px 0;
-}
-
-#logo {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 50%  
 }
 
 #table-section {
