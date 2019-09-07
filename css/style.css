@@ -1,17 +1,63 @@
 body {
   padding: 20px;
+  background-image: url("../images/water.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+#sales-page {
+  /* padding: 20px; */
+  background-image: url("../images/wood.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .topnav {
   /* float: left; */
   /* text-align: center; */
-  text-decoration: none;
-  font-size: 20px;
   padding: 30px;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
-h1 {
-  text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+main h1 {
+  margin-top: 40px;
+}
+
+.topnav a {
+  font-family: 'Philosopher', sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 20px;
+  color: black;
+  transition: color 500ms, font-size 300ms;
+  transition-delay: 400ms;
+}
+
+.topnav a:hover {
+  color: green;
+  font-size: 30px;
+}
+
+header h1:hover {
+  color: white;
+}
+
+nav h1 {
+  /* text-align: center; */
+  margin-top: 20px;
+  font-family: 'Cookie', cursive;
+  font-size: 5em;
+  /* z-index: 99; */
+  color: #96513D;
+  width: 40%;
+  overflow: hidden;
+  transition: width
 }
 
 .shop {
@@ -20,10 +66,12 @@ h1 {
 }
 
 #logo {
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  display: block;
-  width: 50%  
+  display: block; */
+  float: right;
+  width: 50%;
+  /* margin-top: 10px; */
 }
 
 #table-section {
