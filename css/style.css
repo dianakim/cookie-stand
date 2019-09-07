@@ -13,6 +13,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+ 
+#sales-table {
+  background-color: #EAF9DB;
+}
 
 .topnav div {
   width: 400px;
@@ -22,6 +26,10 @@ body {
 
 .salesnav div {
   width: 500px;
+}
+
+.salesnav div h1 {
+  color: #432011;
 }
 
 .topnav {
