@@ -154,14 +154,25 @@ table {
   margin-right: auto;
 }
 
-#shirt {
+#recipe {
   margin-top: 30px;
 }
 
-#shirt img {
-  float: left;
+#shirt {
+  margin-top: 30px;
+
 }
 
+
 #alt-prints {
-  float: right;
+ margin-top: 30px;
+}
+
+footer {
+  margin-top: 30px;
+  color: white;
+}
+
+footer ul {
+  list-style: none;
 }
