@@ -147,3 +147,21 @@ legend {
 table {
   line-height: 25px;
 }
+
+#family img {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#shirt {
+  margin-top: 30px;
+}
+
+#shirt img {
+  float: left;
+}
+
+#alt-prints {
+  float: right;
+}
