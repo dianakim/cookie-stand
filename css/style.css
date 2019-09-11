@@ -1,9 +1,10 @@
 body {
-  padding: 20px;
+  padding: 30px;
   background-image: url("../images/water.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: Marcellus, serif;
 }
 
 #sales-page {
@@ -43,6 +44,12 @@ body {
 
 main {
   display: block;
+}
+
+main h1 {
+  font-size: 35px;
+  color: white;
+  padding-bottom: 10px;
 }
 
 main p {
@@ -106,6 +113,7 @@ tr:nth-child(even) {
 
 thead {
   font-weight: bold;
+  background-color: #B2C7A3;
 }
 
 td {
@@ -121,8 +129,50 @@ td:first-child {
 
 form {
   margin-top: 30px;
+  line-height: 30px;
+  background-color: #F6DA4A;
+  padding: 20px;
+  width: 450px;;
 }
 
 tfoot:last-child {
   background-color: #F7DC38;
+}
+
+legend {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+table {
+  line-height: 25px;
+}
+
+#family img {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#recipe {
+  margin-top: 30px;
+}
+
+#shirt {
+  margin-top: 30px;
+
+}
+
+
+#alt-prints {
+ margin-top: 30px;
+}
+
+footer {
+  margin-top: 30px;
+  color: white;
+}
+
+footer ul {
+  list-style: none;
 }
